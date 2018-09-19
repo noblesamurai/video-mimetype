@@ -24,7 +24,11 @@
     "node": "8.x",
     "npm": "5.x"
   },
-  "dependencies": {},
+  "dependencies": {
+    "ffprobe-static": "^3.0.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "mpeg4-mimetype": "^1.0.0-module.3"
+  },
   "devDependencies": {
     "chai": "^3.5.0",
     "dirty-chai": "^1.2.2",
