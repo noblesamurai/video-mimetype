@@ -1,7 +1,7 @@
 {
   "name": "video-mimetype",
   "description": "Get a mimetype from a video for use with MediaSource API.",
-  "version": "1.0.0-init.1",
+  "version": "1.0.0-init.2",
   "author": "Tim Allen <tim@noblesamurai.com>",
   "license": "BSD",
   "main": "index.js",
