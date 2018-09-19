@@ -15,6 +15,16 @@ function main () {
   console.log(result);
 }
 ```
+Prints:
+```
+{
+  height: 100,
+  width: 100,
+  format: 'mp4',
+  mime: 'video/mp4; codecs="avc1.4d401f, mp4a.40.2"',
+  ffprobe: /* json output from ffprobe */
+}
+```
 
 ## API
 

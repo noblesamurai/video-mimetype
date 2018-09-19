@@ -18,13 +18,14 @@ const examples = [
 
 describe('video-mimetype', function () {
   it('should give a mimetype for mp4 files', function () {
-    this.timeout(5000);
     return Promise.all(examples.map(async (example) => {
       const result = await videoMimeType(path.join(__dirname, 'fixtures', example.filename));
       expect(result).to.be.an('object');
-      expect(result).to.have.keys('width', 'height', 'format', 'ffprobe');
-      expect(result.format).to.equal(example.expectation);
+      expect(result).to.have.keys('width', 'height', 'format', 'ffprobe', 'mime');
+      expect(result.mime).to.equal(example.expectation);
       expect(result.width).to.be.an('number');
+      expect(result.height).to.be.an('number');
+      expect(result.format).to.match(/mp4|ogg|webm/);
     }));
   });
 });
