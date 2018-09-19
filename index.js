@@ -17,7 +17,7 @@ module.exports = async (filePath) => {
   let format;
   console.log({format: metadata.format}, { formatName });
   console.log({compatibleBrands});
-  const [formatNameMatch] = formatName.match(/(webm|ogg|mp4)/)
+  const [formatNameMatch] = formatName.match(/(webm|ogg|mp4)/);
   if (formatNameMatch === 'mp4') {
     format = await mpeg4MimeType(filePath);
   } else {
