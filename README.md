@@ -3,15 +3,17 @@
 > Get a mimetype from a video for use with MediaSource API.
 
 ## Purpose
-- What problem does this module solve? At least a few sentences.
-PLEASE_FILL_IN_HERE
+
+Detects mimetype of given video and output a mimetype compatible with MediaSource API.
 
 ## Usage
 
 ```js
-// Several examples of usage.
-// Usually copying and pasting code from the tests and making the code standalone suffices.
-// PLEASE_FILL_IN_HERE
+const videoMimeType = require('video-mimetype');
+function main () {
+  const result = await videoMimeType(__dirname + '/video.mp4');
+  console.log(result);
+}
 ```
 
 ## API
