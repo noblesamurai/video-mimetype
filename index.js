@@ -15,8 +15,6 @@ module.exports = async (filePath) => {
   const { width, height } = metadata.streams.find(s => s.codec_type === 'video');
   const { tags: { compatible_brands: compatibleBrands } = {}, format_name: formatName } = metadata.format;
   let format;
-  console.log({format: metadata.format}, { formatName });
-  console.log({compatibleBrands});
   const [formatNameMatch] = formatName.match(/(webm|ogg|mp4)/);
   if (formatNameMatch === 'mp4') {
     format = await mpeg4MimeType(filePath);
