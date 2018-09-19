@@ -4,6 +4,12 @@ const util = require('util');
 const ffprobe = util.promisify(ffmpeg.ffprobe);
 ffmpeg.setFfprobePath(require('ffprobe-static').path);
 
+/**
+ * @module video-mimetype
+ * @async
+ * @param {string} filePath
+ * @returns {object} object comprising width, height, format (mimetype), ffprobe metadata
+ */
 module.exports = async (filePath) => {
   const metadata = await ffprobe(filePath);
   const { width, height } = metadata.streams.find(s => s.codec_type === 'video');
