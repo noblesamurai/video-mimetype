@@ -13,12 +13,16 @@ ffmpeg.setFfprobePath(require('ffprobe-static').path);
 module.exports = async (filePath) => {
   const metadata = await ffprobe(filePath);
   const { width, height } = metadata.streams.find(s => s.codec_type === 'video');
-  const { tags: { compatible_brands: compatibleBrands } } = metadata.format;
+  const { tags: { compatible_brands: compatibleBrands } = {}, format_name: formatName } = metadata.format;
   let format;
-  if (compatibleBrands && compatibleBrands.match(/mp4/)) {
+  console.log({format: metadata.format}, { formatName });
+  console.log({compatibleBrands});
+  const [formatNameMatch] = formatName.match(/(webm|ogg|mp4)/)
+  if (formatNameMatch === 'mp4') {
     format = await mpeg4MimeType(filePath);
   } else {
-    format = 'blerg';
+    const codecs = metadata.streams.map((s) => s.codec_name).filter(c => c !== 'unknown');
+    format = `video/${formatNameMatch}; codecs="${codecs.join(', ')}"`;
   }
-  return { width, height, format, ffprobe: metadata };
+  return { width: parseInt(width), height: parseInt(height), format, ffprobe: metadata };
 };

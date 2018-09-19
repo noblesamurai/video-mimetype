@@ -4,11 +4,15 @@ const path = require('path');
 const examples = [
   {
     filename: 'SampleVideo.mp4',
-    expectation: 'etc'
+    expectation: 'video/mp4; codecs="avc1.4d401f, mp4a.40.2"'
   },
   {
     filename: 'big-buck-bunny_trailer.webm',
-    expectation: 'etc'
+    expectation: 'video/webm; codecs="vp8, vorbis"'
+  },
+  {
+    filename: 'small.ogv',
+    expectation: 'video/ogg; codecs="theora, vorbis"'
   }
 ];
 
@@ -18,7 +22,8 @@ describe('video-mimetype', function () {
       const result = await videoMimeType(path.join(__dirname, 'fixtures', example.filename));
       expect(result).to.be.an('object');
       expect(result).to.have.keys('width', 'height', 'format', 'ffprobe');
-      expect(result.format).to.match(/video\/mpeg4/);
+      expect(result.format).to.equal(example.expectation);
+      expect(result.width).to.be.an('number');
     }));
   });
 });
