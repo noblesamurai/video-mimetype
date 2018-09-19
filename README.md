@@ -18,7 +18,15 @@ function main () {
 
 ## API
 
-PLEASE_FILL_IN_HERE
+
+<a name="module_video-mimetype"></a>
+
+## video-mimetype ⇒ <code>object</code>
+**Returns**: <code>object</code> - object comprising width, height, format (mimetype), ffprobe metadata
+
+| Param | Type |
+| --- | --- |
+| filePath | <code>string</code> |
 
 Note: To regenerate this section from the jsdoc run `npm run docs` and paste
 the output above.
