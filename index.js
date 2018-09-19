@@ -13,7 +13,7 @@ ffmpeg.setFfprobePath(require('ffprobe-static').path);
 module.exports = async (filePath) => {
   const metadata = await ffprobe(filePath);
   const { width, height } = metadata.streams.find(s => s.codec_type === 'video');
-  const { tags: { compatible_brands: compatibleBrands } = {}, format_name: formatName } = metadata.format;
+  const { format_name: formatName } = metadata.format;
   let format;
   const [formatNameMatch] = formatName.match(/(webm|ogg|mp4)/);
   if (formatNameMatch === 'mp4') {
