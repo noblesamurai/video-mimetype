@@ -18,6 +18,7 @@ const examples = [
 
 describe('video-mimetype', function () {
   it('should give a mimetype for mp4 files', function () {
+    this.timeout(5000);
     return Promise.all(examples.map(async (example) => {
       const result = await videoMimeType(path.join(__dirname, 'fixtures', example.filename));
       expect(result).to.be.an('object');
