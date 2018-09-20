@@ -11,7 +11,9 @@ ffmpeg.setFfprobePath(require('ffprobe-static').path);
  * @returns {object} object comprising width, height, format (mimetype), ffprobe metadata
  */
 module.exports = async (filePath) => {
+  const ffprobeStaticVersion = require('ffprobe-static/package.json').version;
   const metadata = await ffprobe(filePath);
+  metadata['ffprobe-static-version'] = ffprobeStaticVersion;
   const { width, height } = metadata.streams.find(s => s.codec_type === 'video');
   const { format_name: formatName } = metadata.format;
   let mime;
