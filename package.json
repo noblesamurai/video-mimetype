@@ -27,7 +27,7 @@
   "dependencies": {
     "ffprobe-static": "^3.0.0",
     "fluent-ffmpeg": "^2.1.2",
-    "mpeg4-mimetype": "^1.0.0-module.3"
+    "mpeg4-mimetype": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
