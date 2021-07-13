@@ -6,6 +6,18 @@
 
 Detects mimetype of given video and output a mimetype compatible with MediaSource API.
 
+## Prerequisites
+
+```
+$ pip install pre-commit
+```
+
+## Installation
+
+```
+$ pre-commit install --install-hooks
+```
+
 ## Usage
 
 ```js
